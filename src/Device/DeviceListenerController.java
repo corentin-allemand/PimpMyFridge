@@ -5,8 +5,6 @@ import java.util.Observer;
 
 public class DeviceListenerController implements Observer{
     private IDeviceAdapter serialAdapter = null;
-
-
     public DeviceListenerController(IDeviceAdapter sA) {
        serialAdapter = sA;
     }

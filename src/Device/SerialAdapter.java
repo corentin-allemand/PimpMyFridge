@@ -122,11 +122,13 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
         return this.buffer;
     }
 
-    public void writeData(byte[] message)
+    public void writeData(String trame)
     {
+        byte dataTrame[];
+        dataTrame = trame.getBytes();
         try
         {
-            output.write(message);
+            output.write(dataTrame);
             output.flush();
         }
         catch (Exception e)

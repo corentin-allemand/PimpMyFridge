@@ -35,12 +35,12 @@ public class ArduinoAdapter implements IDeviceAdapter{
     }
 
     @Override
-    public SerialAdapter getSerialAdapter() {
-        return serialAdapter;
+    public void addObserver(Object o) {
+        serialAdapter.addObserver((Observer) o);
     }
 
     @Override
-    public void addObserver(Object o) {
-        serialAdapter.addObserver((Observer) o);
+    public void sendData(String s) {
+        serialAdapter.writeData(s);
     }
 }
