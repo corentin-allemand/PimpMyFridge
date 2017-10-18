@@ -35,6 +35,7 @@ public class Interface {
             public void actionPerformed(ActionEvent e) {
                 temperature--;
                 LabTemperatureVoulu.setText(""+temperature+" °C");
+
             }
         });
         BtnTemperatureAugmente.addActionListener(new ActionListener() {
@@ -42,9 +43,11 @@ public class Interface {
             public void actionPerformed(ActionEvent e) {
                 temperature++;
                 LabTemperatureVoulu.setText(""+temperature+" °C");
+
             }
         });
     }
+
 
 
 }

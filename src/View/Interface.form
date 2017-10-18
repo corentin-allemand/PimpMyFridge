@@ -75,19 +75,6 @@
           </component>
         </children>
       </grid>
-      <grid id="fbdce" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
-        <constraints/>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="5cc40" class="javax.swing.JLabel">
-            <constraints/>
-            <properties>
-              <text value="Label"/>
-            </properties>
-          </component>
-        </children>
-      </grid>
     </children>
   </grid>
 </form>
