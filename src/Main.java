@@ -7,7 +7,6 @@ import Model.IModel;
 import Controller.Controller;
 import Controller.IController;
 import View.View;
-import View.IView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,7 +23,7 @@ public class Main extends Thread{
     public static void main(String[] args) throws IOException {
         IModel model = new Model();
         IController controller = new Controller(model);
-        IView view = new View(controller);
+        View view = new View(controller);
         IDeviceAdapter arduino = new ArduinoAdapter();
 
         arduino.initializeDevice();

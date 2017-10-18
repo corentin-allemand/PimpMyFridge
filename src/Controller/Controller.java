@@ -7,9 +7,11 @@ public class Controller implements IController{
         this.M = m;
     }
 
+
     @Override
-    public void setTemperature(int temperature) {
-        M.setTemp(temperature);
+    public void setInterfaceTemperature(int temperature){
+        M.set_interfaceTemperature(temperature);
+        System.out.println("From Controller");
     }
 
 }

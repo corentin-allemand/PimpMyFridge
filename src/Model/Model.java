@@ -7,18 +7,16 @@ import java.util.Random;
 
 public class Model extends Observable implements IModel{
 
-    private int temp;
+    private int _interfaceTemperature;
 
     public Model() {
 
+
     }
 
-    public int getTemp() {
-        return temp;
-    }
-
-    public void setTemp(int temp) {
-        this.temp = temp;
+    public void set_interfaceTemperature(int _interfaceTemperature) {
+        this._interfaceTemperature = _interfaceTemperature;
+        System.out.println("From Model");
         notifyObservers();
         setChanged();
     }
