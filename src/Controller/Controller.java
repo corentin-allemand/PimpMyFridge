@@ -14,4 +14,8 @@ public class Controller implements IController{
         System.out.println("From Controller");
     }
 
+    public int getInterfaceTemp(){
+        return  M.getInterfaceTemp();
+    }
+
 }
