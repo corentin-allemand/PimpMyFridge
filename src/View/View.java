@@ -21,6 +21,10 @@ public class View implements Observer{
     private JLabel LabTemperaturePeltier;
     private JLabel LabHumidite;
     private JButton BtnValider;
+    private JTabbedPane tabbedPane1;
+    private JPanel paneltemperature;
+    private JPanel panelConfiguration;
+    private JPanel panelGraphique;
 
     private int InterfaceTemperature;
 
@@ -28,8 +32,8 @@ public class View implements Observer{
         IC = ic;
 
         JFrame frame = new JFrame("Application Gestion du Frigo");
-        frame.setPreferredSize(new Dimension(300,200));
-        frame.setLocation(100,100);
+        /*frame.setPreferredSize(new Dimension(1200,700));
+        frame.setLocation(100,100);*/
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
