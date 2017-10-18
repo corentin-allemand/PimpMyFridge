@@ -9,4 +9,8 @@ public interface IController {
     String getInterfaceTimeZone();
     void initializeFromFile();
     void saveInFile();
+    double get_temperatureInterieur();
+    double get_temperatureExterieur();
+    double get_temperaturePeltier();
+
 }

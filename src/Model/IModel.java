@@ -12,4 +12,11 @@ public interface IModel {
     String getInterfaceTimeZone();
     void initializeFromFile();
     void saveInFile();
+    void set_temperatureInterieur(double _temperatureInterieur);
+    void set_temperatureExterieur(double _temperatureExterieur);
+    void set_temperaturePeltier(double _temperaturePeltier);
+    double get_temperatureInterieur();
+    double get_temperatureExterieur();
+    double get_temperaturePeltier();
+
 }
