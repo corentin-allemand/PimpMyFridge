@@ -11,7 +11,17 @@ public class DeviceListenerController implements Observer{
 
     @Override
     public void update(Observable obs, Object arg) {
-       System.out.println("Je suis a jour sur la temperature");
-       // Update from SerialAdapter
+        System.out.println(serialAdapter.getBuffer());
+        //String[] str_array = serialAdapter.getBuffer().split("$");
+        /*
+        String Text = str_array[0];
+        String Tint = str_array[1];
+        String Tplt = str_array[2];
+        String Humi = str_array[3];
+        */
+
+        //System.out.println(Text + " - " + Tint + " - " + Tplt + " - " + Humi);
+
+       //System.out.println(serialAdapter.getBuffer());
     }
 }

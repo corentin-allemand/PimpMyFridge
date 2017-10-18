@@ -5,4 +5,6 @@ public interface IDeviceAdapter {
     String getSerialReadedValue();
     void addObserver(Object o);
     void sendData(String s);
+    String getBuffer();
+
 }
