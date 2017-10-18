@@ -16,13 +16,37 @@
       <component id="501ef" class="javax.swing.JLabel" binding="temperatureVoulu">
         <constraints/>
         <properties>
-          <text value=""/>
+          <text value="18"/>
         </properties>
       </component>
       <component id="1d836" class="javax.swing.JButton" binding="temperatureAugmente">
         <constraints/>
         <properties>
           <text value="+"/>
+        </properties>
+      </component>
+      <component id="f383f" class="javax.swing.JLabel" binding="temperatureInterieur">
+        <constraints/>
+        <properties>
+          <text value="Temperature Interieur : "/>
+        </properties>
+      </component>
+      <component id="14e4a" class="javax.swing.JLabel" binding="temperatureIntValeur">
+        <constraints/>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="9b954" class="javax.swing.JLabel" binding="temperatureExterieur">
+        <constraints/>
+        <properties>
+          <text value="Température Intérieur : "/>
+        </properties>
+      </component>
+      <component id="294d" class="javax.swing.JLabel" binding="temperatureExtValeur">
+        <constraints/>
+        <properties>
+          <text value=""/>
         </properties>
       </component>
     </children>

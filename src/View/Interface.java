@@ -9,6 +9,10 @@ public class Interface {
     private JButton temperatureAugmente;
     private JLabel temperatureVoulu;
     private JPanel panelMain;
+    private JLabel temperatureInterieur;
+    private JLabel temperatureIntValeur;
+    private JLabel temperatureExterieur;
+    private JLabel temperatureExtValeur;
 
     public Interface(){
 
@@ -18,12 +22,5 @@ public class Interface {
         frame.pack();
         frame.setVisible(true);
 
-        temperatureDiminue.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Yo");
-                System.out.println("Coucou");
-            }
-        });
     }
 }
