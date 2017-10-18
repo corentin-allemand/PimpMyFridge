@@ -74,18 +74,17 @@ public class Model extends Observable implements IModel{
 
     public void set_temperatureInterieur(double _temperatureInterieur) {
         this._temperatureInterieur = _temperatureInterieur;
-        notifyObservers();
-        setChanged();
     }
 
     public void set_temperatureExterieur(double _temperatureExterieur) {
         this._temperatureExterieur = _temperatureExterieur;
-        notifyObservers();
-        setChanged();
     }
 
     public void set_temperaturePeltier(double _temperaturePeltier) {
         this._temperaturePeltier = _temperaturePeltier;
+    }
+
+    public void callObservers(){
         notifyObservers();
         setChanged();
     }
