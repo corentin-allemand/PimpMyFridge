@@ -7,6 +7,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 
 
 public class View implements Observer{
@@ -32,8 +41,8 @@ public class View implements Observer{
         IC = ic;
 
         JFrame frame = new JFrame("Application Gestion du Frigo");
-        /*frame.setPreferredSize(new Dimension(1200,700));
-        frame.setLocation(100,100);*/
+        frame.setPreferredSize(new Dimension(1200,500));
+        frame.setLocation(100,100);
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,8 +50,7 @@ public class View implements Observer{
         frame.setVisible(true);
 
         initFromModel();
-
-
+        initGraphique();
 
         BtnTemperatureDiminue.addActionListener(new ActionListener() {
             @Override
@@ -79,6 +87,52 @@ public class View implements Observer{
         InterfaceTemperature = IC.getInterfaceTemp();
         LabTemperatureVoulu.setText(""+InterfaceTemperature+" °C");
     }
+
+
+    public View() {
+
+    }
+
+    public void initGraphique(){
+        JFreeChart xylineChart = ChartFactory.createXYLineChart("Graphique des mesures de température", "Temps", "Température", createDataset(), PlotOrientation.VERTICAL, true, true, false);
+        ChartPanel chartPanel = new ChartPanel(xylineChart);
+        XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer( );
+        renderer.setSeriesPaint( 0 , Color.RED );
+        renderer.setSeriesPaint( 1 , Color.GREEN );
+        renderer.setSeriesPaint( 2 , Color.YELLOW );
+        renderer.setSeriesStroke( 0 , new BasicStroke( 4.0f ) );
+        renderer.setSeriesStroke( 1 , new BasicStroke( 3.0f ) );
+        renderer.setSeriesStroke( 2 , new BasicStroke( 2.0f ) );
+        final XYPlot plot =xylineChart.getXYPlot();
+        plot.setRenderer( renderer );
+        panelGraphique.setLayout(new BorderLayout());
+        panelGraphique.add(chartPanel, BorderLayout.NORTH);
+    }
+
+
+    private XYDataset createDataset( ) {
+        final XYSeries interieur = new XYSeries( "Température Intérieur" );
+        interieur.add( 0.30 , 20.0 );
+        interieur.add( 1.30 , 19.0 );
+        interieur.add( 2.30, 18.0 );
+
+        final XYSeries exterieur = new XYSeries( "Température Extérieur" );
+        exterieur.add( 0.30 , 25.0 );
+        exterieur.add( 1.30 , 25.0 );
+        exterieur.add( 2.30 , 25.0 );
+
+        final XYSeries peltier = new XYSeries( "Peltier" );
+        peltier.add( 0.30 , 19.0 );
+        peltier.add( 1.30 , 18.0 );
+        peltier.add( 2.30 , 17.0 );
+
+        final XYSeriesCollection dataset = new XYSeriesCollection( );
+        dataset.addSeries( interieur );
+        dataset.addSeries( exterieur );
+        dataset.addSeries( peltier );
+        return dataset;
+    }
+
 
 
 }
