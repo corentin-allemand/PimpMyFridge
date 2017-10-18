@@ -1,13 +1,17 @@
 package View;
 
+import Controller.IController;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.util.Observable;
+import java.util.Observer;
 
-public class Interface {
+
+public class View implements Observer{
+    private IController IC;
+
     private JButton BtnTemperatureDiminue;
     private JButton BtnTemperatureAugmente;
     private JLabel LabTemperatureVoulu;
@@ -16,10 +20,12 @@ public class Interface {
     private JLabel LabTemperatureExterieur;
     private JLabel LabTemperaturePeltier;
     private JLabel LabHumidite;
+    private JButton BtnValider;
 
-    private int temperature = 18;
+    private int InterfaceTemperature;
 
-    public Interface(){
+    public View(IController ic){
+        IC = ic;
 
         JFrame frame = new JFrame("Application Gestion du Frigo");
         frame.setPreferredSize(new Dimension(300,200));
@@ -30,24 +36,45 @@ public class Interface {
         frame.pack();
         frame.setVisible(true);
 
+        initFromModel();
+
+
+
         BtnTemperatureDiminue.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                temperature--;
-                LabTemperatureVoulu.setText(""+temperature+" °C");
+                InterfaceTemperature--;
+                LabTemperatureVoulu.setText(""+InterfaceTemperature+" °C");
 
             }
         });
         BtnTemperatureAugmente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                temperature++;
-                LabTemperatureVoulu.setText(""+temperature+" °C");
+                InterfaceTemperature++;
+                LabTemperatureVoulu.setText(""+InterfaceTemperature+" °C");
 
+            }
+        });
+        BtnValider.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                IC.setInterfaceTemperature(InterfaceTemperature);
             }
         });
     }
 
+
+
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
+
+    public void initFromModel(){
+        InterfaceTemperature = IC.getInterfaceTemp();
+        LabTemperatureVoulu.setText(""+InterfaceTemperature+" °C");
+    }
 
 
 }

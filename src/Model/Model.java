@@ -1,13 +1,11 @@
 package Model;
-import Device.DeviceExecModelController;
 
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Random;
 
 public class Model extends Observable implements IModel{
 
-    private int _interfaceTemperature;
+    private int _interfaceTemperature = 18;
 
     public Model() {
 
@@ -19,6 +17,10 @@ public class Model extends Observable implements IModel{
         System.out.println("From Model");
         notifyObservers();
         setChanged();
+    }
+
+    public int getInterfaceTemp(){
+        return _interfaceTemperature;
     }
 
     @Override
