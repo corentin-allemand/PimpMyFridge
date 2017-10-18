@@ -4,5 +4,5 @@ package Model;
 
 public interface IModel {
     void addObserver(Object o);
-    void setTemp(int t);
+    void set_interfaceTemperature(int _interfaceTemperature);
 }
