@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.Observable;
 import java.util.Observer;
 import org.jfree.chart.ChartFactory;
@@ -12,6 +13,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.data.time.Millisecond;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -35,13 +37,17 @@ public class View implements Observer{
     private JPanel panelConfiguration;
     private JPanel panelGraphique;
 
+    private XYSeries interieur;
+    private XYSeries exterieur;
+    private XYSeries peltier;
+
     private int InterfaceTemperature;
 
     public View(IController ic){
         IC = ic;
 
         JFrame frame = new JFrame("Application Gestion du Frigo");
-        frame.setPreferredSize(new Dimension(1200,500));
+        frame.setPreferredSize(new Dimension(800,500));
         frame.setLocation(100,100);
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panelMain);
@@ -74,13 +80,16 @@ public class View implements Observer{
                 IC.setInterfaceTemperature(InterfaceTemperature);
             }
         });
+
     }
 
 
 
     @Override
     public void update(Observable o, Object arg) {
-
+        AddDataToDatasetInterieur();
+        AddDataToDatasetExterieur();
+        AddDataToDatasetPeltier();
     }
 
     public void initFromModel(){
@@ -90,6 +99,7 @@ public class View implements Observer{
 
 
     public View() {
+
 
     }
 
@@ -111,20 +121,9 @@ public class View implements Observer{
 
 
     private XYDataset createDataset( ) {
-        final XYSeries interieur = new XYSeries( "Température Intérieur" );
-        interieur.add( 0.30 , 20.0 );
-        interieur.add( 1.30 , 19.0 );
-        interieur.add( 2.30, 18.0 );
-
-        final XYSeries exterieur = new XYSeries( "Température Extérieur" );
-        exterieur.add( 0.30 , 25.0 );
-        exterieur.add( 1.30 , 25.0 );
-        exterieur.add( 2.30 , 25.0 );
-
-        final XYSeries peltier = new XYSeries( "Peltier" );
-        peltier.add( 0.30 , 19.0 );
-        peltier.add( 1.30 , 18.0 );
-        peltier.add( 2.30 , 17.0 );
+        interieur = new XYSeries( "Température Intérieur" );
+        exterieur = new XYSeries( "Température Extérieur" );
+        peltier = new XYSeries( "Peltier" );
 
         final XYSeriesCollection dataset = new XYSeriesCollection( );
         dataset.addSeries( interieur );
@@ -133,6 +132,19 @@ public class View implements Observer{
         return dataset;
     }
 
+    public void AddDataToDatasetInterieur(){
+        final Millisecond now = new Millisecond();
+        interieur.add(now.getMillisecond(),  IC.get_temperatureInterieur());
+    }
+
+    public void AddDataToDatasetExterieur(){
+        final Millisecond now = new Millisecond();
+        exterieur.add(now.getMillisecond(),  IC.get_temperatureExterieur());
+    }
+    public void AddDataToDatasetPeltier(){
+        final Millisecond now = new Millisecond();
+        peltier.add(now.getMillisecond(),  IC.get_temperaturePeltier());
+    }
 
 
 }

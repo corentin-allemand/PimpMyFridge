@@ -8,8 +8,12 @@ public class Model extends Observable implements IModel{
     private int _interfaceTemperature; private String nameParam_interfaceTemperature = "initTemperature";
     private String _unit; private String nameParam_unit = "unitTemperature";
     private String _timeZone; private String nameParam_timeZone= "timeZone";
+    private double _time;
 
 
+    private double _temperatureInterieur;
+    private double _temperatureExterieur;
+    private double _temperaturePeltier;
     private String[][] loadedParams;
 
 
@@ -67,6 +71,37 @@ public class Model extends Observable implements IModel{
         notifyObservers();
         setChanged();
     }
+
+    public void set_temperatureInterieur(double _temperatureInterieur) {
+        this._temperatureInterieur = _temperatureInterieur;
+        notifyObservers();
+        setChanged();
+    }
+
+    public void set_temperatureExterieur(double _temperatureExterieur) {
+        this._temperatureExterieur = _temperatureExterieur;
+        notifyObservers();
+        setChanged();
+    }
+
+    public void set_temperaturePeltier(double _temperaturePeltier) {
+        this._temperaturePeltier = _temperaturePeltier;
+        notifyObservers();
+        setChanged();
+    }
+
+    public double get_temperatureInterieur() {
+        return _temperatureInterieur;
+    }
+
+    public double get_temperatureExterieur() {
+        return _temperatureExterieur;
+    }
+
+    public double get_temperaturePeltier() {
+        return _temperaturePeltier;
+    }
+
 
 
 

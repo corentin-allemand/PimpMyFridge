@@ -51,4 +51,17 @@ public class Controller implements IController{
         M.saveInFile();
     }
 
+    public double get_temperatureInterieur() {
+        return M.get_temperatureInterieur();
+    }
+
+    public double get_temperatureExterieur() {
+        return M.get_temperatureExterieur();
+    }
+
+    public double get_temperaturePeltier() {
+        return M.get_temperaturePeltier();
+    }
+
+
 }
