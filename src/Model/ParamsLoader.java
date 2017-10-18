@@ -20,19 +20,18 @@ public class ParamsLoader {
     public String[][] read(){
 
         String[] param;
-        String[][] allParams = null;
+        String[][] allParams = new String [3][2];
         try {
 
             br = new BufferedReader(new FileReader(csvFile));
             int x = 0;
-            int y = 0;
+
             while ((line = br.readLine()) != null) {
 
-                // use comma as separator
                 param = line.split(cvsSplitBy);
 
-                allParams[x][y] = param[0];
-                allParams[x][y+1] = param[1];
+                allParams[x][0] = param[0];
+                allParams[x][1] = param[1];
                 x++;
 
             }
