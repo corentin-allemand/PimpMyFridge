@@ -2,7 +2,12 @@ import Device.ArduinoAdapter;
 import Device.DeviceExecModelController;
 import Device.DeviceListenerController;
 import Device.IDeviceAdapter;
-
+import Model.Model;
+import Model.IModel;
+import Controller.Controller;
+import Controller.IController;
+import View.View;
+import View.IView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,36 +22,17 @@ public class Main extends Thread{
 
 
     public static void main(String[] args) throws IOException {
+        IModel model = new Model();
+        IController controller = new Controller(model);
+        IView view = new View(controller);
         IDeviceAdapter arduino = new ArduinoAdapter();
+
         arduino.initializeDevice();
         DeviceListenerController DLC = new DeviceListenerController(arduino);
         DeviceExecModelController DEMC = new DeviceExecModelController(arduino);
         arduino.addObserver(DLC);
-        new ReadInput(DEMC);
-
+        model.addObserver(DEMC);
+        model.addObserver(view);
     }
 }
 
-/** Simulating view  **/
-class ReadInput extends Thread{
-    DeviceExecModelController demc;
-    private String s;
-    private BufferedReader br;
-    private boolean close = false;
-    public ReadInput(DeviceExecModelController O) throws IOException {
-        demc = O;
-        while (close == false){
-            run();
-        }
-    }
-    @Override
-    public void run() {
-        br = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            s = br.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        demc.sendTrame(s);
-    }
-}

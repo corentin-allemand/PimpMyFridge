@@ -11,10 +11,7 @@ public class DeviceListenerController implements Observer{
 
     @Override
     public void update(Observable obs, Object arg) {
-        if (obs instanceof SerialAdapter)
-        {
-            System.out.println(serialAdapter.getSerialReadedValue());
-            // Action quand Arduino envoie une valeur
-        }
+       System.out.println("Je suis a jour sur la temperature");
+       // Update from SerialAdapter
     }
 }
