@@ -5,7 +5,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Calendar;
 import java.util.Observable;
 import java.util.Observer;
 import org.jfree.chart.ChartFactory;
@@ -40,12 +43,19 @@ public class View implements Observer{
     private XYSeries interieur;
     private XYSeries exterieur;
     private XYSeries peltier;
+    private Millisecond now;
+    Timestamp timestamp;
+    Instant instant;
+    Timestamp start_timestamp;
+    Instant start_instant;
+
+
 
     private int InterfaceTemperature;
 
     public View(IController ic){
         IC = ic;
-
+        now = new Millisecond();
         JFrame frame = new JFrame("Application Gestion du Frigo");
         frame.setPreferredSize(new Dimension(800,500));
         frame.setLocation(100,100);
@@ -57,6 +67,9 @@ public class View implements Observer{
 
         initFromModel();
         initGraphique();
+        start_timestamp = new Timestamp(System.currentTimeMillis());
+        start_instant = start_timestamp.toInstant();
+
 
         BtnTemperatureDiminue.addActionListener(new ActionListener() {
             @Override
@@ -132,18 +145,28 @@ public class View implements Observer{
         return dataset;
     }
 
+    public long getTime(){
+        timestamp = new Timestamp(System.currentTimeMillis());
+        instant = timestamp.toInstant();
+        long sous = start_instant.toEpochMilli();
+        long time = instant.toEpochMilli();
+        long total = time - sous;
+        return total/1000;
+    }
+
     public void AddDataToDatasetInterieur(){
-        final Millisecond now = new Millisecond();
-        interieur.add(now.getMillisecond(),  IC.get_temperatureInterieur());
+        interieur.add(getTime(),  IC.get_temperatureInterieur());
     }
 
     public void AddDataToDatasetExterieur(){
-        final Millisecond now = new Millisecond();
-        exterieur.add(now.getMillisecond(),  IC.get_temperatureExterieur());
+
+        exterieur.add(getTime(),  IC.get_temperatureExterieur());
     }
     public void AddDataToDatasetPeltier(){
-        final Millisecond now = new Millisecond();
-        peltier.add(now.getMillisecond(),  IC.get_temperaturePeltier());
+
+        peltier.add(getTime(),  IC.get_temperaturePeltier());
+
+
     }
 
 

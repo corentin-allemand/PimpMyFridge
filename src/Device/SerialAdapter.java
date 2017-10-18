@@ -14,6 +14,10 @@ import java.util.Observer;
 
 public class SerialAdapter extends Observable implements SerialPortEventListener{
 
+    public void setBuffer(String buffer) {
+        this.buffer = buffer;
+    }
+
     private String buffer;
     SerialPort serialPort;
     /** Les ports utilisés */

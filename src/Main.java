@@ -27,7 +27,7 @@ public class Main extends Thread{
         IDeviceAdapter arduino = new ArduinoAdapter();
 
         arduino.initializeDevice();
-        DeviceListenerController DLC = new DeviceListenerController(arduino);
+        DeviceListenerController DLC = new DeviceListenerController(arduino, model);
         DeviceExecModelController DEMC = new DeviceExecModelController(arduino);
         arduino.addObserver(DLC);
         model.addObserver(DEMC);

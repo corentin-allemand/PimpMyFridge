@@ -43,4 +43,9 @@ public class ArduinoAdapter implements IDeviceAdapter{
     public void sendData(String s) {
         serialAdapter.writeData(s);
     }
+
+    @Override
+    public String getBuffer() {
+        return serialAdapter.getBuffer();
+    }
 }

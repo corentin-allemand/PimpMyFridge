@@ -18,5 +18,6 @@ public interface IModel {
     double get_temperatureInterieur();
     double get_temperatureExterieur();
     double get_temperaturePeltier();
+    void callObservers();
 
 }
