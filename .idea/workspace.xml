@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d52c6dbe-d63c-41aa-be19-0ba46d479354" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/Device/DeviceListenerController.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/Device/DeviceListenerController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/Main.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/Model/IModel.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/Model/IModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/Model/Model.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/Model/Model.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View$1.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View$2.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View$3.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View.class" afterPath="$PROJECT_DIR$/out/production/PimpMyFridge/View/View.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Device/DeviceListenerController.java" afterPath="$PROJECT_DIR$/src/Device/DeviceListenerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/IModel.java" afterPath="$PROJECT_DIR$/src/Model/IModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Model.java" afterPath="$PROJECT_DIR$/src/Model/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/View.java" afterPath="$PROJECT_DIR$/src/View/View.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -183,7 +171,7 @@
           <file leaf-file-name="View.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/View/View.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="312">
+                <state relative-caret-position="780">
                   <caret line="162" column="49" lean-forward="false" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
                   <folding>
                     <element signature="e#5075#5076#0" expanded="true" />
@@ -320,10 +308,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1920" />
-    <option name="y" value="142" />
     <option name="width" value="1920" />
-    <option name="height" value="1058" />
+    <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -476,27 +462,27 @@
       <workItem from="1508333721202" duration="2701000" />
       <workItem from="1508345087095" duration="1123000" />
       <workItem from="1508346306337" duration="5415000" />
-      <workItem from="1508359184831" duration="6644000" />
+      <workItem from="1508359184831" duration="6976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32610000" />
+    <option name="totallyTimeSpent" value="32942000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1920" y="120" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32892415" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32938856" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29453263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -968,7 +954,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/View.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
+        <state relative-caret-position="780">
           <caret line="162" column="49" lean-forward="false" selection-start-line="162" selection-start-column="49" selection-end-line="162" selection-end-column="49" />
           <folding>
             <element signature="e#5075#5076#0" expanded="true" />
