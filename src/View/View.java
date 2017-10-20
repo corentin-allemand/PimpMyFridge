@@ -113,23 +113,25 @@ public class View implements Observer {
         btnDiminueConfig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InterfaceTemperature--;
-                lblTemperatureConfig.setText("" + InterfaceTemperature);
+                _temperatureConfig--;
+                lblTemperatureConfig.setText("" + _temperatureConfig + " "+_unitConfig);
             }
         });
         btnAugmenteConfig.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InterfaceTemperature++;
-                lblTemperatureConfig.setText("" + InterfaceTemperature);
+                _temperatureConfig++;
+                lblTemperatureConfig.setText("" + _temperatureConfig + " "+_unitConfig);
             }
         });
 
         validerConfigurationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                IC.setInterfaceTemperature(InterfaceTemperature);
+                _unitConfig = comboBoxChoixUnit.getSelectedItem().toString();
                 IC.set_interfaceUnit(_unitConfig);
+                IC.set_temperatureConfig(_temperatureConfig);
+                IC.saveInFile();
                 initFromModel();
             }
         });
@@ -145,11 +147,10 @@ public class View implements Observer {
     }
 
     public void initFromModel() {
-        InterfaceTemperature = IC.getInterfaceTemp();
+        _temperatureConfig = IC.get_temperatureConfig();
         _unitConfig = IC.getInterfaceUnit();
-        LabTemperatureVoulu.setText("" + InterfaceTemperature + " "+ _unitConfig);
-        lblTemperatureConfig.setText("" + InterfaceTemperature + "");
-
+        LabTemperatureVoulu.setText("" + _temperatureConfig + " "+ _unitConfig);
+        lblTemperatureConfig.setText("" + _temperatureConfig + " "+  _unitConfig);
     }
 
 

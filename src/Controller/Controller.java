@@ -14,8 +14,13 @@ public class Controller implements IController{
         System.out.println("From Controller");
     }
 
+    public void set_temperatureConfig(int _temperatureConfig){
+        M.set_temperatureConfig(_temperatureConfig);
+    }
 
-
+    public int get_temperatureConfig() {
+       return M.get_temperatureConfig();
+    }
 
     public int getInterfaceTemp(){
         return  M.getInterfaceTemp();
