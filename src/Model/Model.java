@@ -39,7 +39,6 @@ public class Model extends Observable implements IModel{
         saver.write(nameParam_interfaceTemperature, Integer.toString(_interfaceTemperature));
         saver.write(nameParam_unit, _unit);
         saver.write(nameParam_timeZone, _timeZone);
-
     }
 
     public int getInterfaceTemp(){
@@ -48,6 +47,7 @@ public class Model extends Observable implements IModel{
 
     public void set_interfaceTemperature(int _interfaceTemperature) {
         this._interfaceTemperature = _interfaceTemperature;
+        System.out.println(_interfaceTemperature);
         notifyObservers();
         setChanged();
     }
@@ -58,6 +58,7 @@ public class Model extends Observable implements IModel{
 
     public void set_interfaceUnit(String _unit) {
         this._unit = _unit;
+        System.out.println(_unit);
         notifyObservers();
         setChanged();
     }
