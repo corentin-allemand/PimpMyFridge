@@ -16,32 +16,15 @@ public class DeviceListenerController implements Observer{
 
     @Override
     public void update(Observable obs, Object arg) {
-        System.out.println(serialAdapter.getBuffer());
-        Thread t = new Thread() {
-            public void run() {
 
-                M.set_temperatureExterieur(new Random().nextDouble());
-                M.set_temperaturePeltier(new Random().nextDouble());
-                M.set_temperatureInterieur(new Random().nextDouble());
-                M.callObservers();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+        String[] str_array = ("EXT:12-INT:34-PLT:54-HMI:67-ALT:0-ANO:1").split("-");
 
-            }
-        };
-        t.start();
-        //String[] str_array = serialAdapter.getBuffer().split("$");
-        /*
         String Text = str_array[0];
         String Tint = str_array[1];
         String Tplt = str_array[2];
         String Humi = str_array[3];
-        */
-
-        //System.out.println(Text + " - " + Tint + " - " + Tplt + " - " + Humi);
+        String AltConden = str_array[4];
+        String AltAno = str_array[5];
 
        //System.out.println(serialAdapter.getBuffer());
     }
