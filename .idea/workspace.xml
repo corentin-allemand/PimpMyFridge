@@ -310,12 +310,13 @@
       <workItem from="1508333721202" duration="2701000" />
       <workItem from="1508345087095" duration="1123000" />
       <workItem from="1508346306337" duration="5415000" />
-      <workItem from="1508359184831" duration="6976000" />
+      <workItem from="1508359184831" duration="7775000" />
+      <workItem from="1508509514332" duration="2402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32942000" />
+    <option name="totallyTimeSpent" value="36143000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -499,6 +500,20 @@
           <caret line="29" column="84" lean-forward="false" selection-start-line="29" selection-start-column="84" selection-end-line="29" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1358#1359#0" expanded="true" />
+            <element signature="e#1402#1403#0" expanded="true" />
+            <element signature="e#1627#1628#0" expanded="true" />
+            <element signature="e#1655#1656#0" expanded="true" />
+            <element signature="e#1832#1833#0" expanded="true" />
+            <element signature="e#1864#1865#0" expanded="true" />
+            <element signature="e#2364#2365#0" expanded="true" />
+            <element signature="e#2426#2427#0" expanded="true" />
+            <element signature="e#2563#2564#0" expanded="true" />
+            <element signature="e#2607#2608#0" expanded="true" />
+            <element signature="e#2655#2656#0" expanded="true" />
+            <element signature="e#2699#2700#0" expanded="true" />
+            <element signature="e#2745#2746#0" expanded="true" />
+            <element signature="e#2787#2788#0" expanded="true" />
           </folding>
         </state>
       </provider>
