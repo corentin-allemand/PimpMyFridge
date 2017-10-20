@@ -5,6 +5,8 @@ package Model;
 public interface IModel {
     void addObserver(Object o);
     void set_interfaceTemperature(int _interfaceTemperature);
+    void set_temperatureConfig(int _temperatureConfig);
+    int get_temperatureConfig();
     int getInterfaceTemp();
     void set_interfaceUnit(String _unit);
     String getInterfaceUnit();

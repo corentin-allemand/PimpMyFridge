@@ -5,7 +5,8 @@ import java.util.Observer;
 
 public class Model extends Observable implements IModel{
 
-    private int _interfaceTemperature; private String nameParam_interfaceTemperature = "initTemperature";
+    private int _interfaceTemperature;
+    private int _temperatureConfig; private String nameParam_temperatureConfig = "initTemperature";
     private String _unit; private String nameParam_unit = "unitTemperature";
     private String _timeZone; private String nameParam_timeZone= "timeZone";
     private double _time;
@@ -26,7 +27,7 @@ public class Model extends Observable implements IModel{
         ParamsLoader P = new ParamsLoader();
         loadedParams = new String [3][2];
         loadedParams = P.read();
-        _interfaceTemperature = Integer.parseInt(loadedParams[0][1]);
+        _temperatureConfig = Integer.parseInt(loadedParams[0][1]);
         _unit = loadedParams[1][1];
         _timeZone = loadedParams[2][1];
         notifyObservers();
@@ -36,10 +37,9 @@ public class Model extends Observable implements IModel{
     public void saveInFile(){
         ParamsSaver saver = new ParamsSaver();
         saver.deleteFile();
-        saver.write(nameParam_interfaceTemperature, Integer.toString(_interfaceTemperature));
+        saver.write(nameParam_temperatureConfig, Integer.toString(_temperatureConfig));
         saver.write(nameParam_unit, _unit);
         saver.write(nameParam_timeZone, _timeZone);
-
     }
 
     public int getInterfaceTemp(){
@@ -48,8 +48,19 @@ public class Model extends Observable implements IModel{
 
     public void set_interfaceTemperature(int _interfaceTemperature) {
         this._interfaceTemperature = _interfaceTemperature;
+        System.out.println(_interfaceTemperature);
         notifyObservers();
         setChanged();
+    }
+
+    public void set_temperatureConfig(int _temperatureConfig){
+        this._temperatureConfig = _temperatureConfig;
+        System.out.println(_temperatureConfig);
+        notifyObservers();
+        setChanged();
+    }
+    public int get_temperatureConfig(){
+        return  _temperatureConfig;
     }
 
     public String getInterfaceUnit(){
@@ -58,6 +69,7 @@ public class Model extends Observable implements IModel{
 
     public void set_interfaceUnit(String _unit) {
         this._unit = _unit;
+        System.out.println(_unit);
         notifyObservers();
         setChanged();
     }

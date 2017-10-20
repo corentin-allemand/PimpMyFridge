@@ -2,6 +2,8 @@ package Controller;
 
 public interface IController {
     void setInterfaceTemperature(int temperature);
+    void set_temperatureConfig(int _temperatureConfig);
+    int get_temperatureConfig();
     int getInterfaceTemp();
     void set_interfaceUnit(String _unit);
     String getInterfaceUnit();
