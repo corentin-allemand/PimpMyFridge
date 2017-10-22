@@ -74,8 +74,8 @@ public class View implements Observer {
         IC = ic;
         now = new Millisecond();
         JFrame frame = new JFrame("Application Gestion du Frigo");
-        frame.setPreferredSize(new Dimension(800, 500));
-        frame.setLocation(100, 100);
+        /*frame.setPreferredSize(new Dimension(800, 500));
+        frame.setLocation(100, 100);*/
         frame.setLocationRelativeTo(null);
         frame.setContentPane(panelMain);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -164,6 +164,13 @@ public class View implements Observer {
                 InitComboboxSerialPort();
             }
         });
+
+        tabbedPane1.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                frame.pack();
+            }
+        });
         
     }
 
@@ -186,6 +193,7 @@ public class View implements Observer {
 
 
     public View() {
+
 
 
     }
