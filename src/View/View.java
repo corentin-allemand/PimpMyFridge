@@ -45,6 +45,8 @@ public class View implements Observer {
     private JButton btnDiminueConfig;
     private JButton btnAugmenteConfig;
     private JLabel lblTemperatureConfig;
+    private JButton connecterButton;
+    private JPanel panel1;
 
     private XYSeries interieur;
     private XYSeries exterieur;
@@ -217,6 +219,13 @@ public class View implements Observer {
     public void initComboboxChoixUnit() {
         comboBoxChoixUnit.addItem("°C");
         comboBoxChoixUnit.addItem("°F");
+    }
+
+    public void AddButtonSerialPort(){
+
+        while (){
+            JButton
+        }
     }
 
 }
