@@ -11,9 +11,9 @@ public interface IController {
     String getInterfaceTimeZone();
     void initializeFromFile();
     void saveInFile();
-    double get_temperatureInterieur();
-    double get_temperatureExterieur();
-    double get_temperaturePeltier();
+    float get_temperatureInterieur();
+    float get_temperatureExterieur();
+    float get_temperaturePeltier();
     void updateListDevice();
     void selectDevice(String device);
     void sendData();

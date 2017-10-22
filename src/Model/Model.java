@@ -12,9 +12,9 @@ public class Model extends Observable implements IModel{
     private double _time;
 
 
-    private double _temperatureInterieur;
-    private double _temperatureExterieur;
-    private double _temperaturePeltier;
+    private float _temperatureInterieur;
+    private float _temperatureExterieur;
+    private float _temperaturePeltier;
     private String[][] loadedParams;
 
     public String[] get_listDevices() {
@@ -82,15 +82,15 @@ public class Model extends Observable implements IModel{
         callObservers();
     }
 
-    public void set_temperatureInterieur(double _temperatureInterieur) {
+    public void set_temperatureInterieur(float _temperatureInterieur) {
         this._temperatureInterieur = _temperatureInterieur;
     }
 
-    public void set_temperatureExterieur(double _temperatureExterieur) {
+    public void set_temperatureExterieur(float _temperatureExterieur) {
         this._temperatureExterieur = _temperatureExterieur;
     }
 
-    public void set_temperaturePeltier(double _temperaturePeltier) {
+    public void set_temperaturePeltier(float _temperaturePeltier) {
         this._temperaturePeltier = _temperaturePeltier;
     }
 
@@ -99,15 +99,15 @@ public class Model extends Observable implements IModel{
         setChanged();
     }
 
-    public double get_temperatureInterieur() {
+    public float get_temperatureInterieur() {
         return _temperatureInterieur;
     }
 
-    public double get_temperatureExterieur() {
+    public float get_temperatureExterieur() {
         return _temperatureExterieur;
     }
 
-    public double get_temperaturePeltier() {
+    public float get_temperaturePeltier() {
         return _temperaturePeltier;
     }
 

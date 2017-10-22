@@ -14,12 +14,12 @@ public interface IModel {
     String getInterfaceTimeZone();
     void initializeFromFile();
     void saveInFile();
-    void set_temperatureInterieur(double _temperatureInterieur);
-    void set_temperatureExterieur(double _temperatureExterieur);
-    void set_temperaturePeltier(double _temperaturePeltier);
-    double get_temperatureInterieur();
-    double get_temperatureExterieur();
-    double get_temperaturePeltier();
+    void set_temperatureInterieur(float _temperatureInterieur);
+    void set_temperatureExterieur(float _temperatureExterieur);
+    void set_temperaturePeltier(float _temperaturePeltier);
+    float get_temperatureInterieur();
+    float get_temperatureExterieur();
+    float get_temperaturePeltier();
     void callObservers();
     void set_listDevice(String[] devices);
     public String[] get_listDevices();

@@ -133,6 +133,7 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 buffer = input.readLine();
+                System.out.println(buffer);
                 setChanged();
                 notifyObservers();
 
