@@ -4,7 +4,10 @@
     <constraints>
       <xy x="20" y="20" width="690" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <enabled value="false"/>
+      <opaque value="false"/>
+    </properties>
     <border type="none"/>
     <children>
       <tabbedpane id="74651" binding="tabbedPane1" default-binding="true">
@@ -18,7 +21,9 @@
             <constraints>
               <tabbedpane title="Température"/>
             </constraints>
-            <properties/>
+            <properties>
+              <opaque value="false"/>
+            </properties>
             <border type="none"/>
             <children>
               <grid id="2d166" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
@@ -90,7 +95,9 @@
             <constraints>
               <tabbedpane title="Graphique"/>
             </constraints>
-            <properties/>
+            <properties>
+              <opaque value="false"/>
+            </properties>
             <border type="none"/>
             <children>
               <vspacer id="20ee2">
@@ -109,7 +116,9 @@
             <constraints>
               <tabbedpane title="Configuration"/>
             </constraints>
-            <properties/>
+            <properties>
+              <opaque value="false"/>
+            </properties>
             <border type="none"/>
             <children>
               <grid id="6cb23" layout-manager="GridLayoutManager" row-count="3" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

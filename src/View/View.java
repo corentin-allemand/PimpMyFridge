@@ -1,10 +1,14 @@
 package View;
 
 import Controller.IController;
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -55,13 +59,12 @@ public class View implements Observer {
     Timestamp start_timestamp;
     Instant start_instant;
 
-
     private int InterfaceTemperature;
     private int _temperatureConfig;
     private String _unitConfig;
 
 
-    public View(IController ic) {
+    public View(IController ic) throws IOException {
         IC = ic;
         now = new Millisecond();
         JFrame frame = new JFrame("Application Gestion du Frigo");
@@ -216,8 +219,6 @@ public class View implements Observer {
     public void initComboboxChoixUnit() {
         comboBoxChoixUnit.addItem("°C");
         comboBoxChoixUnit.addItem("°F");
-
-
     }
 
 }
