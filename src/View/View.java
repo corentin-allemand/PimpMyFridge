@@ -2,9 +2,10 @@ package View;
 
 import Controller.IController;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
@@ -16,6 +17,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.time.Millisecond;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
@@ -55,6 +57,7 @@ public class View implements Observer {
     private XYSeries interieur;
     private XYSeries exterieur;
     private XYSeries peltier;
+    private XYSeries datasetHumi;
     private Millisecond now;
     Timestamp timestamp;
     Instant instant;
@@ -161,7 +164,7 @@ public class View implements Observer {
                 InitComboboxSerialPort();
             }
         });
-
+        
     }
 
 
@@ -170,6 +173,7 @@ public class View implements Observer {
         AddDataToDatasetInterieur();
         AddDataToDatasetExterieur();
         AddDataToDatasetPeltier();
+        AddDataToDatasetHumidity();
         initLabelTemperatureETAlerte();
     }
 
@@ -183,10 +187,13 @@ public class View implements Observer {
 
     public View() {
 
+
     }
 
     public void initGraphique() {
         JFreeChart xylineChart = ChartFactory.createXYLineChart("Graphique des mesures de température", "Temps", "Température", createDataset(), PlotOrientation.VERTICAL, true, true, false);
+        JFreeChart chartHumidity = ChartFactory.createXYLineChart("Graphique des mesures d'humidité","Temps","Pourcentage (%)", creatDatasetHumidty(), PlotOrientation.VERTICAL, true,true,false);
+        ChartPanel HumidityPanel = new ChartPanel(chartHumidity);
         ChartPanel chartPanel = new ChartPanel(xylineChart);
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
         renderer.setSeriesPaint(0, Color.RED);
@@ -199,6 +206,7 @@ public class View implements Observer {
         plot.setRenderer(renderer);
         panelGraphique.setLayout(new BorderLayout());
         panelGraphique.add(chartPanel, BorderLayout.NORTH);
+        panelGraphique.add(HumidityPanel, BorderLayout.CENTER);
     }
 
 
@@ -213,6 +221,19 @@ public class View implements Observer {
         dataset.addSeries(peltier);
         return dataset;
     }
+
+    private XYDataset creatDatasetHumidty(){
+        datasetHumi = new XYSeries("Humidité");
+        final XYSeriesCollection datasetHumidity = new XYSeriesCollection();
+        datasetHumidity.addSeries(datasetHumi);
+
+        return  datasetHumidity;
+    }
+
+    public void AddDataToDatasetHumidity(){
+        datasetHumi.add(getTime(),IC.get_humidity());
+    }
+
 
     public long getTime() {
         timestamp = new Timestamp(System.currentTimeMillis());
@@ -249,8 +270,10 @@ public class View implements Observer {
         String[] Devices = IC.getDevices();
         System.out.println(Devices[0]);
         for (String Device : Devices) {
-            comboBoxSerial.addItem(Device);
-            System.out.println(Device);
+            if(Device != null){
+                comboBoxSerial.addItem(Device);
+                //System.out.println(Device);
+            }
         }
     }
 
