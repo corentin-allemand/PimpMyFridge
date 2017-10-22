@@ -47,6 +47,7 @@ public class View implements Observer {
     private JLabel lblTemperatureConfig;
     private JComboBox comboBoxSerial;
     private JButton seConnecterButton;
+    private JButton btnRafraichir;
     private JPanel panelSerial;
 
     private XYSeries interieur;
@@ -149,6 +150,14 @@ public class View implements Observer {
             }
         });
 
+        btnRafraichir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                IC.updateListDevice();
+                InitComboboxSerialPort();
+            }
+        });
+
     }
 
 
@@ -157,6 +166,7 @@ public class View implements Observer {
         AddDataToDatasetInterieur();
         AddDataToDatasetExterieur();
         AddDataToDatasetPeltier();
+        initLabelTemperatureETAlerte();
     }
 
     public void initFromModel() {
@@ -168,8 +178,6 @@ public class View implements Observer {
 
 
     public View() {
-
-
 
     }
 
@@ -233,18 +241,19 @@ public class View implements Observer {
     }
 
     public void InitComboboxSerialPort(){
-
+        comboBoxSerial.setSelectedIndex(0);
         String[] Devices = IC.getDevices();
         for (String Device : Devices) {
             comboBoxSerial.addItem(Device);
             System.out.println(Device);
         }
+    }
 
-        /*int i;
-        String[] Serial = {"COM5", "COM6"};
-        for (i=0; i<=2; i++) {
-            comboBoxSerial.addItem(Serial[i]);
-        }*/
+    public void initLabelTemperatureETAlerte(){
+        LabTemperatureInterieur.setText("Temperature Interieur : "+  IC.get_temperatureInterieur() + " " + _unitConfig);
+        LabTemperatureExterieur.setText("Température Extérieur : "+ IC.get_temperatureExterieur() + " " +_unitConfig);
+        LabTemperaturePeltier.setText("Température Peltier : "+ IC.get_temperaturePeltier() + " " +_unitConfig);
+        LabHumidite.setText("Humidité : ");
     }
 
 }

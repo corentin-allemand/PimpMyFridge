@@ -85,7 +85,7 @@
                   </component>
                 </children>
               </grid>
-              <grid id="bd1d3" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="bd1d3" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints border-constraint="Center"/>
                 <properties/>
@@ -124,6 +124,14 @@
                     </constraints>
                     <properties>
                       <text value="Se Connecter"/>
+                    </properties>
+                  </component>
+                  <component id="1a1be" class="javax.swing.JButton" binding="btnRafraichir">
+                    <constraints>
+                      <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <text value="Rafraichir"/>
                     </properties>
                   </component>
                 </children>
