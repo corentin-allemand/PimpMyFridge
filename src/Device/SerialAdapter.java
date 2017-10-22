@@ -21,12 +21,13 @@ import java.io.*;
 public class SerialAdapter extends Observable implements SerialPortEventListener{
 
 
-    String[] portListPath = new String[1];
-    CommPortIdentifier[] portList = new CommPortIdentifier[1];
+    String[] portListPath = new String[2];
+    CommPortIdentifier[] portList = new CommPortIdentifier[2];
     CommPortIdentifier selectedDevice = null;
 
     public SerialAdapter() {
         detectDevice();
+        System.out.println("pass");
     }
 
     public void setBuffer(String buffer) {
@@ -63,7 +64,7 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
                 if (!currPortId.getName().equals("/dev/tty.Bluetooth-Incoming-Port") && !currPortId.getName().equals("/dev/cu.Bluetooth-Incoming-Port") && !currPortId.getName().equals("/dev/cu.usbmodem1411")  && !currPortId.getName().equals("/dev/cu.usbmodem1421")){
                     portList[i] = currPortId;
                     portListPath[i] = currPortId.getName();
-                    System.out.println(currPortId.getName());
+                    //System.out.println(currPortId.getName());
                     i++;
                 }
             }
@@ -133,6 +134,7 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 buffer = input.readLine();
+                System.out.println(buffer);
                 setChanged();
                 notifyObservers();
 

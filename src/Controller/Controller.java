@@ -57,16 +57,31 @@ public class Controller implements IController{
         M.saveInFile();
     }
 
-    public double get_temperatureInterieur() {
+    public float get_temperatureInterieur() {
         return M.get_temperatureInterieur();
     }
 
-    public double get_temperatureExterieur() {
+    public float get_temperatureExterieur() {
         return M.get_temperatureExterieur();
     }
 
-    public double get_temperaturePeltier() {
+    public float get_temperaturePeltier() {
         return M.get_temperaturePeltier();
+    }
+
+    @Override
+    public float get_humidity() {
+        return M.get_humidity();
+    }
+
+    @Override
+    public int get_alertRosee() {
+        return M.get_alertRosee();
+    }
+
+    @Override
+    public int get_alertTemp() {
+        return M.get_alertTemp();
     }
 
     @Override

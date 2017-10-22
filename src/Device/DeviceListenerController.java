@@ -25,12 +25,12 @@ public class DeviceListenerController implements Observer{
 
         for (String term : trame){
             buffTerm = term.split(":");
-            sendDataToModel(buffTerm[0], Integer.parseInt(buffTerm[1]));
+            sendDataToModel(buffTerm[0], Float.parseFloat(buffTerm[1]));
         }
         M.callObservers();
     }
 
-    public void sendDataToModel(String ordre, int value){
+    public void sendDataToModel(String ordre, float value){
         switch (ordre){
             case "EXT" :
                 M.set_temperatureExterieur(value);
@@ -42,13 +42,13 @@ public class DeviceListenerController implements Observer{
                 M.set_temperaturePeltier(value);
                 break;
             case "HMI" :
-
+                M.set_humidity(value);
                 break;
             case "ALT" :
-
+                M.set_alertRosee((int)value);
                 break;
             case "ANO" :
-
+                M.set_alertTemp((int)value);
                 break;
         }
     }

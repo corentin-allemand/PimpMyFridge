@@ -12,17 +12,21 @@ public class Model extends Observable implements IModel{
     private double _time;
 
 
-    private double _temperatureInterieur;
-    private double _temperatureExterieur;
-    private double _temperaturePeltier;
+    private float _temperatureInterieur;
+    private float _temperatureExterieur;
+    private float _temperaturePeltier;
+    private float _humidity;
+    private int _alertRosee;
+
+    private int _alertTemp;
+
     private String[][] loadedParams;
+
+    private String[] _listDevices;
 
     public String[] get_listDevices() {
         return _listDevices;
     }
-
-    private String[] _listDevices;
-
 
     public Model() {
         initializeFromFile();
@@ -82,15 +86,15 @@ public class Model extends Observable implements IModel{
         callObservers();
     }
 
-    public void set_temperatureInterieur(double _temperatureInterieur) {
+    public void set_temperatureInterieur(float _temperatureInterieur) {
         this._temperatureInterieur = _temperatureInterieur;
     }
 
-    public void set_temperatureExterieur(double _temperatureExterieur) {
+    public void set_temperatureExterieur(float _temperatureExterieur) {
         this._temperatureExterieur = _temperatureExterieur;
     }
 
-    public void set_temperaturePeltier(double _temperaturePeltier) {
+    public void set_temperaturePeltier(float _temperaturePeltier) {
         this._temperaturePeltier = _temperaturePeltier;
     }
 
@@ -99,15 +103,15 @@ public class Model extends Observable implements IModel{
         setChanged();
     }
 
-    public double get_temperatureInterieur() {
+    public float get_temperatureInterieur() {
         return _temperatureInterieur;
     }
 
-    public double get_temperatureExterieur() {
+    public float get_temperatureExterieur() {
         return _temperatureExterieur;
     }
 
-    public double get_temperaturePeltier() {
+    public float get_temperaturePeltier() {
         return _temperaturePeltier;
     }
 
@@ -123,5 +127,32 @@ public class Model extends Observable implements IModel{
             System.out.println(device);
         }
         callObservers();
+    }
+
+    @Override
+    public void set_humidity(float _humidity) {
+        this._humidity = _humidity;
+    }
+
+    @Override
+    public void set_alertRosee(int _alertRosee) {
+        this._alertRosee = _alertRosee;
+    }
+
+    @Override
+    public void set_alertTemp(int _alertTemp) {
+        this._alertTemp = _alertTemp;
+    }
+
+    public float get_humidity() {
+        return _humidity;
+    }
+
+    public int get_alertRosee() {
+        return _alertRosee;
+    }
+
+    public int get_alertTemp() {
+        return _alertTemp;
     }
 }
