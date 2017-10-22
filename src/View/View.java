@@ -243,7 +243,7 @@ public class View implements Observer {
     }
 
     public void InitComboboxSerialPort(){
-        comboBoxSerial.setSelectedIndex(0);
+        //comboBoxSerial.setSelectedIndex(0);
         String[] Devices = IC.getDevices();
         System.out.println(Devices[0]);
         for (String Device : Devices) {
