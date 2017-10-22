@@ -30,8 +30,8 @@ public class Main extends Thread{
         model.addObserver(DEMC);
         model.addObserver(view);
 
-        controller.updateListDevice();
-        controller.selectDevice("/dev/tty.usbmodem1411");
+        //controller.updateListDevice();
+        //controller.selectDevice("/dev/tty.usbmodem1411");
 
 
 
