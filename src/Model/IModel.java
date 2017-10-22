@@ -21,5 +21,6 @@ public interface IModel {
     double get_temperatureExterieur();
     double get_temperaturePeltier();
     void callObservers();
+    void set_listDevice(String[] devices);
 
 }

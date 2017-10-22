@@ -14,18 +14,56 @@ public class DeviceListenerController implements Observer{
        M = m;
     }
 
+
+    public void setListDevice(){
+        M.set_listDevice(serialAdapter.getListDevice());
+    }
+
+    public void captureTrame(){
+        String[] trame = serialAdapter.getBuffer().split("-");
+        String[] buffTerm;
+
+        for (String term : trame){
+            buffTerm = term.split(":");
+            sendDataToModel(buffTerm[0], Integer.parseInt(buffTerm[1]));
+        }
+        M.callObservers();
+    }
+
+    public void sendDataToModel(String ordre, int value){
+        switch (ordre){
+            case "EXT" :
+                M.set_temperatureExterieur(value);
+                break;
+            case "INT" :
+                M.set_temperatureInterieur(value);
+                break;
+            case "PLT" :
+                M.set_temperaturePeltier(value);
+                break;
+            case "HMI" :
+
+                break;
+            case "ALT" :
+
+                break;
+            case "ANO" :
+
+                break;
+        }
+    }
+
     @Override
     public void update(Observable obs, Object arg) {
+        captureTrame();
+    }
 
-        String[] str_array = ("EXT:12-INT:34-PLT:54-HMI:67-ALT:0-ANO:1").split("-");
+    public void selectDevice(String device) {
+        serialAdapter.selectDevice(device);
+    }
 
-        String Text = str_array[0];
-        String Tint = str_array[1];
-        String Tplt = str_array[2];
-        String Humi = str_array[3];
-        String AltConden = str_array[4];
-        String AltAno = str_array[5];
-
-       //System.out.println(serialAdapter.getBuffer());
+    public void sendTrame(){
+        serialAdapter.sendData(Integer.toString(M.getInterfaceTemp()));
+        System.out.println(Integer.toString(M.getInterfaceTemp()));
     }
 }

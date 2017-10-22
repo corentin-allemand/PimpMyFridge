@@ -100,6 +100,7 @@ public class View implements Observer {
             @Override
             public void actionPerformed(ActionEvent e) {
                 IC.setInterfaceTemperature(InterfaceTemperature);
+                IC.sendData();
             }
         });
 
@@ -194,7 +195,7 @@ public class View implements Observer {
         long sous = start_instant.toEpochMilli();
         long time = instant.toEpochMilli();
         long total = time - sous;
-        return total / 1000;
+        return total ;
     }
 
     public void AddDataToDatasetInterieur() {
@@ -216,8 +217,6 @@ public class View implements Observer {
     public void initComboboxChoixUnit() {
         comboBoxChoixUnit.addItem("°C");
         comboBoxChoixUnit.addItem("°F");
-
-
     }
 
 }

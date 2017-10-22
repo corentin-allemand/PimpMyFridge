@@ -1,17 +1,18 @@
 package Controller;
+import Device.DeviceListenerController;
 import Model.IModel;
 
 public class Controller implements IController{
     private IModel M;
-    public Controller(IModel m) {
+    private DeviceListenerController DLC;
+    public Controller(IModel m, DeviceListenerController dlc) {
         this.M = m;
+        this.DLC = dlc;
     }
-
 
     @Override
     public void setInterfaceTemperature(int temperature){
         M.set_interfaceTemperature(temperature);
-        System.out.println("From Controller");
     }
 
     public void set_temperatureConfig(int _temperatureConfig){
@@ -66,6 +67,21 @@ public class Controller implements IController{
 
     public double get_temperaturePeltier() {
         return M.get_temperaturePeltier();
+    }
+
+    @Override
+    public void updateListDevice() {
+        DLC.setListDevice();
+    }
+
+    @Override
+    public void selectDevice(String device) {
+        DLC.selectDevice(device);
+    }
+
+    @Override
+    public void sendData() {
+        DLC.sendTrame();
     }
 
 

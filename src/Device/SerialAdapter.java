@@ -7,12 +7,27 @@ import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
+
+import javax.swing.filechooser.FileSystemView;
 import java.util.Observable;
 
 import java.util.Enumeration;
 import java.util.Observer;
 
+import java.io.*;
+
+
+
 public class SerialAdapter extends Observable implements SerialPortEventListener{
+
+
+    String[] portListPath = new String[1];
+    CommPortIdentifier[] portList = new CommPortIdentifier[1];
+    CommPortIdentifier selectedDevice = null;
+
+    public SerialAdapter() {
+        detectDevice();
+    }
 
     public void setBuffer(String buffer) {
         this.buffer = buffer;
@@ -25,11 +40,7 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
             "/dev/tty.usbmodem1411",
             "/dev/tty.usbmodem1421",// Mac OS X
     };
-    /**
-     * A BufferedReader which will be fed by a InputStreamReader
-     * converting the bytes into characters
-     * making the displayed results codepage independent
-     */
+
     private BufferedReader input;
     /** The output stream to the port */
     private OutputStream output;
@@ -41,34 +52,43 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
     final static int DASH_ASCII = 45;
     final static int NEW_LINE_ASCII = 10;
 
-    public void initialize() {
-        // the next line is for Raspberry Pi and
-        // gets us into the while loop and was suggested here was suggested http://www.raspberrypi.org/phpBB3/viewtopic.php?f=81&t=32186
-        //System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/cu.usbmodem1411");
-        //System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/tty.usbmodem1411");
-
-        CommPortIdentifier portId = null;
+    public void detectDevice(){
         Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
-
-
-        //First, Find an instance of serial port as set in PORT_NAMES.
+        int i = 0;
         while (portEnum.hasMoreElements()) {
+
             CommPortIdentifier currPortId = (CommPortIdentifier) portEnum.nextElement();
-            for (String portName : PORT_NAMES) {
-                if (currPortId.getName().equals(portName)) {
-                    portId = currPortId;
-                    break;
+
+            if (currPortId.getPortType() == CommPortIdentifier.PORT_SERIAL){
+                if (!currPortId.getName().equals("/dev/tty.Bluetooth-Incoming-Port") && !currPortId.getName().equals("/dev/cu.Bluetooth-Incoming-Port") && !currPortId.getName().equals("/dev/cu.usbmodem1411")  && !currPortId.getName().equals("/dev/cu.usbmodem1421")){
+                    portList[i] = currPortId;
+                    portListPath[i] = currPortId.getName();
+                    i++;
                 }
             }
         }
-        if (portId == null) {
+    }
+
+    public void selectDevice(String devicePath){
+        for (int i = 0 ; i < portList.length ; i++){
+            if (portList[i].getName().equals(devicePath)){
+                selectedDevice = portList[i];
+                System.out.println("Device selected");
+                break;
+            }
+        }
+    }
+
+    public void initialize() {
+
+        if (selectedDevice == null) {
             System.out.println("Could not find Arduino port.");
             return;
         }
 
         try {
             // open serial port, and use class name for the appName.
-            serialPort = (SerialPort) portId.open(this.getClass().getName(),
+            serialPort = (SerialPort) selectedDevice.open(this.getClass().getName(),
                     TIME_OUT);
 
             // set port parameters
@@ -141,4 +161,8 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
         }
     }
 
+    public String[] getPortListPath() {
+        detectDevice();
+        return portListPath;
+    }
 }

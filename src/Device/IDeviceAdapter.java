@@ -6,5 +6,7 @@ public interface IDeviceAdapter {
     void addObserver(Object o);
     void sendData(String s);
     String getBuffer();
+    String[] getListDevice();
+    void selectDevice(String device);
 
 }
