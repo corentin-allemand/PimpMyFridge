@@ -83,6 +83,18 @@
                       <text value="Humidité : "/>
                     </properties>
                   </component>
+                  <component id="6f6f" class="javax.swing.JLabel" binding="labelAlerteRosee">
+                    <constraints/>
+                    <properties>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                  <component id="e1d27" class="javax.swing.JLabel" binding="labelAlerteTemp">
+                    <constraints/>
+                    <properties>
+                      <text value=""/>
+                    </properties>
+                  </component>
                 </children>
               </grid>
               <grid id="bd1d3" layout-manager="GridLayoutManager" row-count="4" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

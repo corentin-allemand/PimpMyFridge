@@ -48,6 +48,8 @@ public class View implements Observer {
     private JComboBox comboBoxSerial;
     private JButton seConnecterButton;
     private JButton btnRafraichir;
+    private JLabel labelAlerteRosee;
+    private JLabel labelAlerteTemp;
     private JPanel panelSerial;
 
     private XYSeries interieur;
@@ -243,7 +245,7 @@ public class View implements Observer {
     }
 
     public void InitComboboxSerialPort(){
-        //comboBoxSerial.setSelectedIndex(0);
+        comboBoxSerial.removeAllItems();
         String[] Devices = IC.getDevices();
         System.out.println(Devices[0]);
         for (String Device : Devices) {
@@ -256,7 +258,25 @@ public class View implements Observer {
         LabTemperatureInterieur.setText("Temperature Interieur : "+  IC.get_temperatureInterieur() + " " + _unitConfig);
         LabTemperatureExterieur.setText("Température Extérieur : "+ IC.get_temperatureExterieur() + " " +_unitConfig);
         LabTemperaturePeltier.setText("Température Peltier : "+ IC.get_temperaturePeltier() + " " +_unitConfig);
-        LabHumidite.setText("Humidité : ");
+        LabHumidite.setText("Humidité : "+ IC.get_humidity() + " %");
+
+        if(IC.get_alertRosee() == 1){
+            labelAlerteRosee.setText("Alerte : Il y a de la condensation !");
+            labelAlerteRosee.setForeground(Color.RED);
+            labelAlerteRosee.setVisible(true);
+        }
+        else {
+            labelAlerteRosee.setVisible(false);
+        }
+
+        if(IC.get_alertTemp() == 1){
+            labelAlerteTemp.setText("Alerte : La porte est ouverte !");
+            labelAlerteTemp.setForeground(Color.RED);
+            labelAlerteTemp.setVisible(true);
+        }
+        else {
+            labelAlerteTemp.setVisible(false);
+        }
     }
 
 }
