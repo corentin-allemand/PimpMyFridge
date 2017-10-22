@@ -104,9 +104,6 @@ public class View implements Observer {
             public void actionPerformed(ActionEvent e) {
                 InterfaceTemperature++;
                 LabTemperatureVoulu.setText("" + InterfaceTemperature + " "+_unitConfig);
-                IC.updateListDevice();
-                InitComboboxSerialPort();
-
             }
         });
         BtnValider.addActionListener(new ActionListener() {
