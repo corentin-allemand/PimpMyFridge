@@ -14,24 +14,29 @@ import java.util.Arrays;
 
 public class Main extends Thread{
 
-    /** DATA FOR ReadInput  **/
-    private String s;
-    private BufferedReader br;
-    private boolean close = false;
-
-
     public static void main(String[] args) throws IOException {
-        IModel model = new Model();
-        IController controller = new Controller(model);
-        View view = new View(controller);
         IDeviceAdapter arduino = new ArduinoAdapter();
+        IModel model = new Model();
+        DeviceListenerController DLC = new DeviceListenerController(arduino, model);
+        DeviceExecModelController DEMC = new DeviceExecModelController(arduino, model);
+        IController controller = new Controller(model, DLC);
+        View view = new View(controller);
+
 
         arduino.initializeDevice();
-        DeviceListenerController DLC = new DeviceListenerController(arduino, model);
-        DeviceExecModelController DEMC = new DeviceExecModelController(arduino);
+
+
         arduino.addObserver(DLC);
         model.addObserver(DEMC);
         model.addObserver(view);
+
+        controller.updateListDevice();
+        controller.selectDevice("/dev/tty.usbmodem1411");
+
+
+
+
+
     }
 }
 

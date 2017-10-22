@@ -14,5 +14,7 @@ public interface IController {
     double get_temperatureInterieur();
     double get_temperatureExterieur();
     double get_temperaturePeltier();
-
+    void updateListDevice();
+    void selectDevice(String device);
+    void sendData();
 }

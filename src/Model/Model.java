@@ -17,6 +17,8 @@ public class Model extends Observable implements IModel{
     private double _temperaturePeltier;
     private String[][] loadedParams;
 
+    private String[] _listDevices;
+
 
     public Model() {
         initializeFromFile();
@@ -30,8 +32,7 @@ public class Model extends Observable implements IModel{
         _temperatureConfig = Integer.parseInt(loadedParams[0][1]);
         _unit = loadedParams[1][1];
         _timeZone = loadedParams[2][1];
-        notifyObservers();
-        setChanged();
+        callObservers();
     }
 
     public void saveInFile(){
@@ -48,16 +49,12 @@ public class Model extends Observable implements IModel{
 
     public void set_interfaceTemperature(int _interfaceTemperature) {
         this._interfaceTemperature = _interfaceTemperature;
-        System.out.println(_interfaceTemperature);
-        notifyObservers();
-        setChanged();
+        callObservers();
     }
 
     public void set_temperatureConfig(int _temperatureConfig){
         this._temperatureConfig = _temperatureConfig;
-        System.out.println(_temperatureConfig);
-        notifyObservers();
-        setChanged();
+        callObservers();
     }
     public int get_temperatureConfig(){
         return  _temperatureConfig;
@@ -69,9 +66,7 @@ public class Model extends Observable implements IModel{
 
     public void set_interfaceUnit(String _unit) {
         this._unit = _unit;
-        System.out.println(_unit);
-        notifyObservers();
-        setChanged();
+        callObservers();
     }
 
     public String getInterfaceTimeZone(){
@@ -80,8 +75,7 @@ public class Model extends Observable implements IModel{
 
     public void set_interfaceTimeZone(String _timeZone) {
         this._timeZone = _timeZone;
-        notifyObservers();
-        setChanged();
+        callObservers();
     }
 
     public void set_temperatureInterieur(double _temperatureInterieur) {
@@ -113,11 +107,17 @@ public class Model extends Observable implements IModel{
         return _temperaturePeltier;
     }
 
-
-
-
     @Override
     public void addObserver(Object o) {
         this.addObserver((Observer) o);
+    }
+
+    @Override
+    public void set_listDevice(String[] devices) {
+        _listDevices = devices;
+        for (String device : devices) {
+            System.out.println(device);
+        }
+        callObservers();
     }
 }

@@ -1,22 +1,24 @@
 package Device;
 
+import Model.IModel;
+
 import java.util.Observable;
 import java.util.Observer;
 
 public class DeviceExecModelController implements Observer{
     private IDeviceAdapter serialAdapter = null;
-    public DeviceExecModelController(IDeviceAdapter sA) {
+    private IModel M;
+    public DeviceExecModelController(IDeviceAdapter sA, IModel m) {
         serialAdapter = sA;
+        M = m;
     }
 
-    public void sendTrame(String trame){
-        serialAdapter.sendData(trame);
-    }
+
 
     @Override
     public void update(Observable obs, Object arg) {
 
-            //System.out.println(serialAdapter.getSerialReadedValue());
-            // Update from model
+        //serialAdapter.sendData(Integer.toString(M.getInterfaceTemp()));
+        //System.out.println("Send consigne");
     }
 }
