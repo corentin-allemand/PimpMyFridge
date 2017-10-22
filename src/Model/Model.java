@@ -17,6 +17,10 @@ public class Model extends Observable implements IModel{
     private double _temperaturePeltier;
     private String[][] loadedParams;
 
+    public String[] get_listDevices() {
+        return _listDevices;
+    }
+
     private String[] _listDevices;
 
 

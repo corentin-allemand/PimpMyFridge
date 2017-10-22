@@ -79,9 +79,16 @@ public class Controller implements IController{
         DLC.selectDevice(device);
     }
 
+
+
     @Override
     public void sendData() {
         DLC.sendTrame();
+    }
+
+    @Override
+    public String[] getDevices() {
+        return M.get_listDevices();
     }
 
 

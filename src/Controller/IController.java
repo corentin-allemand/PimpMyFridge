@@ -17,4 +17,5 @@ public interface IController {
     void updateListDevice();
     void selectDevice(String device);
     void sendData();
+    public String[] getDevices();
 }

@@ -22,5 +22,6 @@ public interface IModel {
     double get_temperaturePeltier();
     void callObservers();
     void set_listDevice(String[] devices);
+    public String[] get_listDevices();
 
 }
