@@ -63,6 +63,7 @@ public class SerialAdapter extends Observable implements SerialPortEventListener
                 if (!currPortId.getName().equals("/dev/tty.Bluetooth-Incoming-Port") && !currPortId.getName().equals("/dev/cu.Bluetooth-Incoming-Port") && !currPortId.getName().equals("/dev/cu.usbmodem1411")  && !currPortId.getName().equals("/dev/cu.usbmodem1421")){
                     portList[i] = currPortId;
                     portListPath[i] = currPortId.getName();
+                    System.out.println(currPortId.getName());
                     i++;
                 }
             }

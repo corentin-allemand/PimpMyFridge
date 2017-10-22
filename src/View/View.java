@@ -45,8 +45,9 @@ public class View implements Observer {
     private JButton btnDiminueConfig;
     private JButton btnAugmenteConfig;
     private JLabel lblTemperatureConfig;
-    private JButton connecterButton;
-    private JPanel panel1;
+    private JComboBox comboBoxSerial;
+    private JButton seConnecterButton;
+    private JPanel panelSerial;
 
     private XYSeries interieur;
     private XYSeries exterieur;
@@ -78,6 +79,8 @@ public class View implements Observer {
         initFromModel();
         initGraphique();
         initComboboxChoixUnit();
+        InitComboboxSerialPort();
+
 
         start_timestamp = new Timestamp(System.currentTimeMillis());
         start_instant = start_timestamp.toInstant();
@@ -139,6 +142,13 @@ public class View implements Observer {
             }
         });
 
+        seConnecterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                IC.selectDevice(comboBoxSerial.getSelectedItem().toString());
+            }
+        });
+
     }
 
 
@@ -158,6 +168,7 @@ public class View implements Observer {
 
 
     public View() {
+
 
 
     }
@@ -221,11 +232,19 @@ public class View implements Observer {
         comboBoxChoixUnit.addItem("°F");
     }
 
-    public void AddButtonSerialPort(){
+    public void InitComboboxSerialPort(){
 
-        while (){
-            JButton
+        String[] Devices = IC.getDevices();
+        for (String Device : Devices) {
+            comboBoxSerial.addItem(Device);
+            System.out.println(Device);
         }
+
+        /*int i;
+        String[] Serial = {"COM5", "COM6"};
+        for (i=0; i<=2; i++) {
+            comboBoxSerial.addItem(Serial[i]);
+        }*/
     }
 
 }
