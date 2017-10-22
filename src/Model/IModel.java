@@ -17,6 +17,12 @@ public interface IModel {
     void set_temperatureInterieur(float _temperatureInterieur);
     void set_temperatureExterieur(float _temperatureExterieur);
     void set_temperaturePeltier(float _temperaturePeltier);
+    void set_humidity(float _humidity);
+    void set_alertRosee(int _alertRosee);
+    void set_alertTemp(int _alertTemp);
+    float get_humidity();
+    int get_alertRosee();
+    int get_alertTemp();
     float get_temperatureInterieur();
     float get_temperatureExterieur();
     float get_temperaturePeltier();

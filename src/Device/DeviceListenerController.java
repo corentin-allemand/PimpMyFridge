@@ -42,13 +42,13 @@ public class DeviceListenerController implements Observer{
                 M.set_temperaturePeltier(value);
                 break;
             case "HMI" :
-
+                M.set_humidity(value);
                 break;
             case "ALT" :
-
+                M.set_alertRosee((int)value);
                 break;
             case "ANO" :
-
+                M.set_alertTemp((int)value);
                 break;
         }
     }

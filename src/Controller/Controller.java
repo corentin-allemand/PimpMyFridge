@@ -70,6 +70,21 @@ public class Controller implements IController{
     }
 
     @Override
+    public float get_humidity() {
+        return M.get_humidity();
+    }
+
+    @Override
+    public int get_alertRosee() {
+        return M.get_alertRosee();
+    }
+
+    @Override
+    public int get_alertTemp() {
+        return M.get_alertTemp();
+    }
+
+    @Override
     public void updateListDevice() {
         DLC.setListDevice();
     }

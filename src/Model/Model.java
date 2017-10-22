@@ -15,14 +15,18 @@ public class Model extends Observable implements IModel{
     private float _temperatureInterieur;
     private float _temperatureExterieur;
     private float _temperaturePeltier;
+    private float _humidity;
+    private int _alertRosee;
+
+    private int _alertTemp;
+
     private String[][] loadedParams;
+
+    private String[] _listDevices;
 
     public String[] get_listDevices() {
         return _listDevices;
     }
-
-    private String[] _listDevices;
-
 
     public Model() {
         initializeFromFile();
@@ -123,5 +127,32 @@ public class Model extends Observable implements IModel{
             System.out.println(device);
         }
         callObservers();
+    }
+
+    @Override
+    public void set_humidity(float _humidity) {
+        this._humidity = _humidity;
+    }
+
+    @Override
+    public void set_alertRosee(int _alertRosee) {
+        this._alertRosee = _alertRosee;
+    }
+
+    @Override
+    public void set_alertTemp(int _alertTemp) {
+        this._alertTemp = _alertTemp;
+    }
+
+    public float get_humidity() {
+        return _humidity;
+    }
+
+    public int get_alertRosee() {
+        return _alertRosee;
+    }
+
+    public int get_alertTemp() {
+        return _alertTemp;
     }
 }
